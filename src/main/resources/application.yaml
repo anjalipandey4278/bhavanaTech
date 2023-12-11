@@ -1,0 +1,13 @@
+
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/interlace
+    password: root
+  application:
+    name: interlace-service
+  jpa:
+    hibernate:
+      ddl-auto: none
+server:
+  port: '8080'
