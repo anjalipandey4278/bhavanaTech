@@ -6,8 +6,7 @@ pipeline {
         SPRING_BOOT_PROJECT_NAME = "InterlaceApplication"
         IIS_WEBAPPS_DIR = "C:\\inetpub\\wwwroot"
         WAR_FILE = "${SPRING_BOOT_PROJECT_DIR}\\target\\${SPRING_BOOT_PROJECT_NAME}.war"
-        MAVEN_HOME = "C:\Program Files\apache-maven-3.9.4" 
-       
+        MAVEN_HOME = "C:/Program Files/apache-maven-3.9.4"
     }
 
     tools {
@@ -26,7 +25,7 @@ pipeline {
             steps {
                 script {
                     // Build the Spring Boot application using Maven
-                    bat "cd ${SPRING_BOOT_PROJECT_DIR} && \"%MAVEN_HOME%\\bin\\mvn\" clean package"
+                    bat "\"%MAVEN_HOME%\\bin\\mvn\" -f ${SPRING_BOOT_PROJECT_DIR} clean package"
                 }
             }
         }
@@ -64,6 +63,3 @@ def fileExists(filePath) {
     new File(filePath).exists()
 }
 
-def fileExists(filePath) {
-    new File(filePath).exists()
-}
