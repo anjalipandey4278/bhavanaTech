@@ -33,9 +33,6 @@ pipeline {
         stage('Deploy to IIS') {
             steps {
                 script {
-                       if (!fileExists(file: "${WAR_FILE}")) {
-                        error "Error: The WAR file '${WAR_FILE}' does not exist. Build may have failed."
-                    }
 
                     // Copy the WAR file to the IIS webapps directory
                     bat "copy ${WAR_FILE} ${IIS_WEBAPPS_DIR}"
