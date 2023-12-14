@@ -33,8 +33,7 @@ pipeline {
         stage('Deploy to IIS') {
             steps {
                 script {
-                    // Check if the WAR file exists
-                    if (!fileExists(WAR_FILE)) {
+                       if (!fileExists(file: "${WAR_FILE}")) {
                         error "Error: The WAR file '${WAR_FILE}' does not exist. Build may have failed."
                     }
 
@@ -58,21 +57,8 @@ pipeline {
         }
     }
 }
-
 def fileExists(filePath) {
-    return fileExistsInWorkspace(filePath)
-}
-
-def fileExistsInWorkspace(filePath) {
-    return fileExistsFromWorkspace(filePath)
-}
-
-def fileExistsFromWorkspace(String path) {
-    return fileExistsFromWorkspace(new File(path))
-}
-
-def fileExistsFromWorkspace(File file) {
-    return file.exists()
+    new File(filePath).exists()
 }
 
 
