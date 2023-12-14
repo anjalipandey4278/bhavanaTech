@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        SPRING_BOOT_PROJECT_DIR = "C:\Users\user\Desktop\Interlace_Template"
+        SPRING_BOOT_PROJECT_DIR = "C:\\Users\\user\\Desktop\\Interlace_Template"
         SPRING_BOOT_PROJECT_NAME = "InterlaceApplication"
-        IIS_WEBAPPS_DIR = "C:\inetpub\wwwroot"
+        IIS_WEBAPPS_DIR = "C:\\inetpub\\wwwroot"
         WAR_FILE = "${SPRING_BOOT_PROJECT_DIR}\\target\\${SPRING_BOOT_PROJECT_NAME}.war"
     }
 
@@ -53,4 +53,3 @@ pipeline {
 def fileExists(filePath) {
     new File(filePath).exists()
 }
-
