@@ -4,8 +4,9 @@ pipeline {
     environment {
         SPRING_BOOT_PROJECT_DIR = "C:\\Users\\user\\Desktop\\Interlace_Template"
         SPRING_BOOT_PROJECT_NAME = "InterlaceApplication"
+        SPRING_BOOT_PROJECT_NAMEsS = "interlace-0.0.1-SNAPSHOT"
         IIS_WEBAPPS_DIR = "C:\\inetpub\\wwwroot"
-        WAR_FILE = "${SPRING_BOOT_PROJECT_DIR}\\target\\${SPRING_BOOT_PROJECT_NAME}.jar"
+        WAR_FILE = "${SPRING_BOOT_PROJECT_DIR}\\target\\${SPRING_BOOT_PROJECT_NAMES}.jar"
         MAVEN_HOME = "C:/Program Files/apache-maven-3.9.4"
     }
 
