@@ -6,17 +6,27 @@ pipeline {
         SPRING_BOOT_PROJECT_NAME = "InterlaceApplication"
         IIS_WEBAPPS_DIR = "C:\\inetpub\\wwwroot"
         WAR_FILE = "${SPRING_BOOT_PROJECT_DIR}\\target\\${SPRING_BOOT_PROJECT_NAME}.war"
+        MAVEN_HOME = "C:\Program Files\apache-maven-3.9.4"
+        
+    }
+
+    tools {
+        maven 'Maven' // Assuming you configured Maven in Jenkins under "Manage Jenkins" > "Global Tool Configuration"
+        git 'Default'
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'git@github.com:anjalipandey4278/bhavanaTech.git']]])
+            }
+        }
+
         stage('Build') {
             steps {
                 script {
-                    // Checkout the source code from Git
-                    git url: 'git@github.com:anjalipandey4278/bhavanaTech.git'
-
-                    // Build the Spring Boot application
-                    bat "cd ${SPRING_BOOT_PROJECT_DIR} && mvnw clean package"
+                    // Build the Spring Boot application using Maven
+                    bat "cd ${SPRING_BOOT_PROJECT_DIR} && \"%MAVEN_HOME%\\bin\\mvn\" clean package"
                 }
             }
         }
@@ -48,6 +58,10 @@ pipeline {
             echo "Deployment failed. Please check the Jenkins logs for details."
         }
     }
+}
+
+def fileExists(filePath) {
+    new File(filePath).exists()
 }
 
 def fileExists(filePath) {
