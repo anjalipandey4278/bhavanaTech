@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
     environment {
         SPRING_BOOT_PROJECT_DIR = "C:\\Users\\user\\Desktop\\Interlace_Template"
         SPRING_BOOT_PROJECT_NAME = "InterlaceApplication"
