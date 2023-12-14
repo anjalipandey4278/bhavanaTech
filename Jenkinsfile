@@ -7,7 +7,7 @@ pipeline {
         IIS_WEBAPPS_DIR = "C:\\inetpub\\wwwroot"
         WAR_FILE = "${SPRING_BOOT_PROJECT_DIR}\\target\\${SPRING_BOOT_PROJECT_NAME}.war"
         MAVEN_HOME = "C:/Program Files/apache-maven-3.9.4" 
-        MAVEN_SETTINGS = "C:/path/to/your/maven/settings.xml" 
+       
     }
 
     tools {
