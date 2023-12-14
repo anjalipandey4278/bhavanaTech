@@ -60,6 +60,19 @@ pipeline {
 }
 
 def fileExists(filePath) {
-    new File(filePath).exists()
+    return fileExistsInWorkspace(filePath)
 }
+
+def fileExistsInWorkspace(filePath) {
+    return fileExistsFromWorkspace(filePath)
+}
+
+def fileExistsFromWorkspace(String path) {
+    return fileExistsFromWorkspace(new File(path))
+}
+
+def fileExistsFromWorkspace(File file) {
+    return file.exists()
+}
+
 
